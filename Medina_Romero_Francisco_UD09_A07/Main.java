@@ -10,14 +10,16 @@ import java.io.*;
  */
 public class Main {
     public static void main(String[] args){
-        try(BufferedWriter out = new BufferedWriter(new FileWriter("Archivo.txt"))) {
-                out.write("En un lugar de La Mancha");
-                out.write("de cuyo nombre no quiero acordarme");
-                out.flush();
-            }catch (IOException exc){
-                    System.out.println("Error al esbricir");
-            } finally {
-            
+        try(BufferedWriter out = new BufferedWriter(new FileWriter("quijote.txt"))) {
+            String cad = "En un lugar de La Mancha,";
+            for (int i = 0; i < cad.length(); i++) {
+                out.write(cad.charAt(i));
+            }
+            cad = "de cuyo nombre no quiero acordarme."; 
+            out.newLine();
+            out.write(cad);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 }
